@@ -20,6 +20,7 @@ body {
 
 .container {
     margin-top: 30px;
+    max-width: 1200px;
 }
 
 h1 {
@@ -31,12 +32,22 @@ h1 {
   line-height: 95%;
 }
 
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    z-index: 2;
+}
+
 p {
-  line-height: 1.9rem;
+  line-height: 2rem;
   font-size: 1.3rem;
-  max-width: 800px;
   z-index: 2;
   position: relative;
+}
+
+.description {
+    padding: 0 30px;
+    text-align: center;
 }
 
 form {
@@ -72,10 +83,14 @@ label {
   display: flex;
   flex-direction: column;
   margin-bottom: 64px;
+  margin-top: 65px;
+  padding: 50px;
 }
+
 .apod img {
   max-width: 100%;
   text-align: center;
+  z-index: 2;
 }
 
 .apod-text {
@@ -114,7 +129,6 @@ label {
 
 .outer {
   position: relative;
-  max-width: 720px;
   padding: 3rem;
   border-radius: 0.75rem;
 }

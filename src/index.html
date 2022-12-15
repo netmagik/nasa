@@ -6,7 +6,7 @@ layout: layout.njk
     <div class="bg-gradient outer">
         <div class="inner">
     <h1>NASA Photo of the Day</h1>
-    <p>
+    <p class="description">
       NASA's
       <a href="https://apod.nasa.gov/apod/astropix.html"
         >Astronomy Picture of the Day (APOD) website</a
@@ -17,16 +17,14 @@ layout: layout.njk
  
 
 
-<form id="birthday-form">
+<form id="calendar-form">
   <label for="date">Enter a date</label><br />
   <input type="date" name="date" id="date-input" />
   <p>
     <button>Get Photo</button>
   </p>
 </form>
-</div>
-</div>
-</div>
+
 
 <section id="apods"></section>
 <template class="apod-template">
@@ -34,8 +32,12 @@ layout: layout.njk
     <img src="" alt="" />
     <h2></h2>
     <p class="explanation"></p>
+    <small class="hidden">Copyright: <span class="copyright"></span></small>
   </article>
 </template>
+</div>
+</div>
+</div>
 
 <script>
   document.querySelector("#date-input").max = new Date().toLocaleDateString(
@@ -84,6 +86,6 @@ layout: layout.njk
   }
 
   document
-    .querySelector("#birthday-form")
+    .querySelector("#calendar-form")
     .addEventListener("submit", handleSubmit);
 </script>
