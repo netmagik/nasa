@@ -2,6 +2,12 @@
 layout: layout.njk
 ---
 
+<div id="stars-group-1"></div>
+<div id="stars-group-2"></div>
+<div id="stars-group-3"></div>
+<div id="stars-group-4"></div>
+<div id="stars-group-5"></div>
+<div id="stars-group-6"></div>
 <div class="container">
     <div class="bg-gradient outer">
         <div class="inner">
@@ -31,6 +37,7 @@ layout: layout.njk
   <article class="apod">
     <img src="" alt="" />
     <h2></h2>
+    <p class="date"></p>
     <p class="explanation"></p>
     <small class="hidden">Copyright: <span class="copyright"></span></small>
   </article>
@@ -53,6 +60,7 @@ layout: layout.njk
     clone.querySelector("img").src = data.url;
     clone.querySelector("h2").innerText = data.title;
     clone.querySelector(".explanation").innerText = data.explanation;
+    clone.querySelector(".date").innerText = data.date;
 
     if (data.copyright) {
       clone.querySelector(".copyright").innerText = data.copyright;
