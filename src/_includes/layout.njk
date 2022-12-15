@@ -1,0 +1,28 @@
+---
+title: Astronomy Picture of Your Birthday
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      {% for nav in collections.nav %}
+        <li><a href="{{ nav.url | url }}">{{ nav.data.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <main>
+    {{ content | safe }}
+  </main>
+</body>
+
+</html>
