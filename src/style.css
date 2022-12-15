@@ -1,0 +1,147 @@
+html {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  place-items: center;
+  min-width: 1200px;
+  min-height: 100vh;
+  background: #0d1117;
+  color: white;
+}
+
+.container {
+    margin-top: 30px;
+}
+
+h1 {
+  position: relative;
+  z-index: 2;
+  font-weight: 700;
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 95%;
+}
+
+p {
+  line-height: 1.9rem;
+  font-size: 1.3rem;
+  max-width: 800px;
+  z-index: 2;
+  position: relative;
+}
+
+form {
+  border:rgb(250, 232, 90) 1px solid;
+  border-radius:  0.5rem;
+  margin: 40px auto;
+  max-width: 400px;
+  padding: 32px;
+  z-index: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  padding: 10px 16px;
+  width: 80%;
+  border-radius: 3px;
+  margin: 10px;
+  z-index: 2;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.1rem;
+}
+
+label {
+  font-size: 1.2rem;
+}
+
+.apod {
+  box-shadow: 0px 3px 12px 0px #ebebeb;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 64px;
+}
+.apod img {
+  max-width: 100%;
+  text-align: center;
+}
+
+.apod-text {
+  padding: 24px;
+}
+
+.hidden {
+  display: none;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    71.18deg,
+    rgb(0, 34, 255) -27.32%,
+    rgb(0, 34, 255) -16.39%,
+    rgb(81, 121, 254) -7.38%,
+    rgb(165, 237, 182) 30.59%,
+    rgb(250, 232, 90) 46.06%,
+    rgb(253, 172, 62) 62.61%,
+    rgb(255, 92, 0) 75.82%
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.bg-gradient {
+  background: linear-gradient(
+    230deg,
+    rgb(0, 34, 255) -16.39%,
+    rgb(165, 237, 182) 30.59%,
+    rgb(253, 172, 62) 62.61%,
+    rgb(255, 92, 0) 75.82%
+  );
+}
+
+.outer {
+  position: relative;
+  max-width: 720px;
+  padding: 3rem;
+  border-radius: 0.75rem;
+}
+
+.inner::after {
+  content: "";
+  position: absolute;
+  background-color: #0d1117;
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  right: 4px;
+  z-index: 1;
+  border-radius: 0.5rem;
+}
+
+button {
+    padding: 10px 15px;
+    color: rgb(36, 41, 46);
+    background: rgb(246, 248, 250);
+    cursor: pointer;
+    border-radius: 0.375rem;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    color:rgb(165, 237, 182)
+}

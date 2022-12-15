@@ -2,87 +2,88 @@
 layout: layout.njk
 ---
 
-<header>
-    <div>
-      <h1>NASA Picture of the Day</h1>
-      <p>
-        NASA's
-        <a href="https://apod.nasa.gov/apod/astropix.html"
-          >Astronomy Picture of the Day (APOD) website</a
-        >
-        is cool but what would be even cooler is if we could see all the APOD's
-        for our birthdays. Enter this fine website... APOYB. You're welcome.
-      </p>
-    </div>
-  </header>
-
-  <form id="birthday-form">
-    <label for="date">Your Birthday</label><br />
-    <input type="date" name="date" id="date-input" />
-  
+<div class="container">
+    <div class="bg-gradient outer">
+        <div class="inner">
+    <h1>NASA Photo of the Day</h1>
     <p>
-      <button>Get my APOYBs</button>
+      NASA's
+      <a href="https://apod.nasa.gov/apod/astropix.html"
+        >Astronomy Picture of the Day (APOD) website</a
+      >
+      shows you a different image or a photograph every day of our fascinating
+      universe with a brief explanation written by a professional astronomer.
     </p>
-  </form>
-  
-  <section id="apods"></section>
-  
-  <template class="apod-template">
-    <article class="apod">
-      <img src="" alt="" />
-      <h2></h2>
-      <p class="explanation"></p>
-      <small class="hidden">Copyright: <span class="copyright"></span></small>
-    </article>
-  </template>
-  
-  <script>
-    document.querySelector("#date-input").max = new Date().toLocaleDateString(
-      "en-CA"
-    );
-  
-    function render(data) {
-      const target = document.querySelector("#apods");
-      target.innerHTML = "";
-      const template = document.querySelector(".apod-template");
-  
-      const clone = template.content.cloneNode(true);
-      clone.querySelector("img").src = data.url;
-      clone.querySelector("h2").innerText = data.title;
-      clone.querySelector(".explanation").innerText = data.explanation;
-  
-      if (data.copyright) {
-        clone.querySelector(".copyright").innerText = data.copyright;
-        clone.querySelector("small").classList.remove("hidden");
-      }
-  
-      apods.appendChild(clone);
+ 
+
+
+<form id="birthday-form">
+  <label for="date">Enter a date</label><br />
+  <input type="date" name="date" id="date-input" />
+  <p>
+    <button>Get Photo</button>
+  </p>
+</form>
+</div>
+</div>
+</div>
+
+<section id="apods"></section>
+<template class="apod-template">
+  <article class="apod">
+    <img src="" alt="" />
+    <h2></h2>
+    <p class="explanation"></p>
+  </article>
+</template>
+
+<script>
+  document.querySelector("#date-input").max = new Date().toLocaleDateString(
+    "en-CA"
+  );
+
+  function render(data) {
+    const target = document.querySelector("#apods");
+    target.innerHTML = "";
+    const template = document.querySelector(".apod-template");
+
+    const clone = template.content.cloneNode(true);
+    clone.querySelector("img").src = data.url;
+    clone.querySelector("h2").innerText = data.title;
+    clone.querySelector(".explanation").innerText = data.explanation;
+
+    if (data.copyright) {
+      clone.querySelector(".copyright").innerText = data.copyright;
+      clone.querySelector("small").classList.remove("hidden");
     }
-  
-    function handleSubmit(event) {
-      event.preventDefault();
-  
-      const formData = new FormData(event.target);
-      const date = formData.get("date");
-  
-      fetch("/.netlify/functions/apod", {
-        method: "POST",
-        body: JSON.stringify({ date: date }),
+
+    apods.appendChild(clone);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const date = formData.get("date");
+
+    fetch("/.netlify/functions/apod", {
+      method: "POST",
+      body: JSON.stringify({ date: date }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response not ok");
+        }
+        return response.json();
       })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response not ok");
-          }
-          return response.json();
-        })
-        .then((json) => {
-          console.log(json);
-          render(json);
-        })
-        .catch((error) => console.error(error));
-    }
-  
-    document
-      .querySelector("#birthday-form")
-      .addEventListener("submit", handleSubmit);
-  </script>
+      .then((json) => {
+        console.log(json);
+        render(json);
+      })
+      .catch((error) => console.error(error));
+  }
+
+  document
+    .querySelector("#birthday-form")
+    .addEventListener("submit", handleSubmit);
+</script>
