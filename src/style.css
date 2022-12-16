@@ -84,7 +84,8 @@ label {
     text-align: center;
     z-index: 2;
     color:rgb(250, 232, 90);
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .apod {
