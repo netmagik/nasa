@@ -24,4 +24,4 @@ Start the server
 ```
 npm run start
 ```
-<img src="https://user-images.githubusercontent.com/3833560/207976003-e11e0faa-0c8c-4926-9d1f-ab37ba30e31d.png">
+<img src="https://user-images.githubusercontent.com/3833560/208111061-78d4a438-c2e0-4b2e-9a27-373969aacbd0.png">
